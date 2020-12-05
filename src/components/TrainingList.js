@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef} from 'react';
-import { AgGridColumn, AgGridReact } from 'ag-grid-react';
+import { AgGridReact } from 'ag-grid-react';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
-import EditTraining from './EditTraining';
-import EditCustomer from './EditCustomer';
-import AddTraining from './AddTraining';
 import moment from 'moment/moment';
 
 const TrainingList = () =>  {
@@ -49,33 +46,7 @@ const TrainingList = () =>  {
    field: 'id', width: 90,
    cellRendererFramework: params => <Button color="secondary" size="small" onClick={() =>deleteTraining(params)}>Delete</Button>
   }
-]
-
-const addTrainings = (newTraining) => {
-    fetch('https://customerrest.herokuapp.com/gettrainings', {
-        method: 'POST',
-        headers: {'Content-type' : 'application/json'},
-        body: JSON.stringify(newTraining)
-    })
-        .then(_ => getTrainings())
-        .then(_ => setMsg('Training added successfully'))
-        .then(_ => setOpen(true))
-        .catch(err => console.error(err))
-     }  
-
-     const updateTraining = (link, training) => {
-        fetch (link.data.id, {
-            method: 'PUT',
-            headers: {
-                'Content-type' : 'application/json'
-            },
-            body: JSON.stringify(training)
-        })
-        .then(_ => getTrainings())
-        .then(_ => setMsg('Edit successful'))
-        .then(_ => setOpen(true))
-        .catch(err => console.error(err))
-    }     
+]  
 
     const getTrainings = () => {
         fetch('https://customerrest.herokuapp.com/gettrainings')

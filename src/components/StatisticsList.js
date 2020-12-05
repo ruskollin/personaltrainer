@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+import { Label, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 
 function Statistics() {
     const [data, setData] = useState([]);
@@ -24,15 +24,15 @@ function Statistics() {
 
     return (
         <div class="page">
-            <div style={{width: "99%", height: 600}}>
+            <div style={{width: "99%", height: 600, marginTop: "20%", marginLeft: "5%"}}>
                 <ResponsiveContainer width="80%" height={550}>
                     <BarChart data={data} margin={{ top: 50, right: 30, left: 20, bottom: 0 }}>
-                        <CartesianGrid strokeDasharray="5 5" />
-                        <XAxis dataKey="activity"/>
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Bar name="Activity" dataKey="activity" fill="#ace7ff" />
+                        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                        <XAxis dataKey="activity" stroke="white"/>
+                        <YAxis name="Duration (min)" stroke="black"/>
+                        <Tooltip wrapperStyle={{backgroundColor: 'yellow' }} />
+                        <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
+                        <Bar name="Duration (min) of Activity" dataKey="duration" fill="#ace7ff"/>
                     </BarChart>
                 </ResponsiveContainer>
             </div>
