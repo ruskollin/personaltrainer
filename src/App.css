@@ -2,6 +2,29 @@
   text-align: center;
 }
 
+body {
+  background-image: url(./images/react1.jpg);
+  background-size: cover;
+  font-family: YeonSung-Regular;
+}
+
+.page {
+  margin-top: 9%;
+}
+
+.page2 {
+  margin-top: 5%;
+}
+
+.page3 {
+  margin-top: 2%;
+}
+
+.addC {
+  text-align: right;
+  background-color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
