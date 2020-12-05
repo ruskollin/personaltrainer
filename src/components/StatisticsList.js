@@ -32,7 +32,7 @@ function Statistics() {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar name="Duration" dataKey="duration" fill="#ace7ff" />
+                        <Bar name="Activity" dataKey="activity" fill="#ace7ff" />
                     </BarChart>
                 </ResponsiveContainer>
             </div>
